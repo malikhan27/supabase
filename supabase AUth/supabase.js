@@ -1,0 +1,7 @@
+console.log(supabase)
+
+const {createClient} = supabase
+const supabaseUrl= "https://krkclzqmaveyskwwzukc.supabase.co"
+const urlKey= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtya2NsenFtYXZleXNrd3d6dWtjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY2NjQ3NzAsImV4cCI6MjA1MjI0MDc3MH0.QjniVFdese8JM_eSCFnEQ2W2sidU2LhYx4YvXDthjEE"
+
+window.supabase= createClient(supabaseUrl,urlKey)
