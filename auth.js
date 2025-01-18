@@ -7,6 +7,7 @@ const loginEmail= document.getElementById("login-email")
 const loginPass= document.getElementById("login-password")
 const loginBtn= document.getElementById("loginbtn")
 const logingoogleBtn= document.getElementById("logingooglebtn")
+const alreadyAccount= document.getElementById("switch-to-login")
 
 
 
@@ -21,7 +22,11 @@ async function signup() {
         
         if(error) throw error
         if(data){
-            alert("please check your email")
+            Swal.fire({
+                icon: "Success",
+                title: "Account Created Successfully",
+                text: "Please Check Your Email For Confirmation!",
+              });
         }
         return data
     }
@@ -43,12 +48,13 @@ async function login() {
         
         if(error) throw error
         if(data){
-            alert("got it")
+           window.location.href="dashboard.html"
         }
         return data
     }
  catch (error) {
     console.log(error)
+    alert(error.message)
         
     }
     
@@ -61,6 +67,17 @@ async function googlelogin(){
       
 }
 
+if(logingoogleBtn){
 logingoogleBtn.addEventListener("click",googlelogin)
+}
+
+if(signupBtn){
 signupBtn.addEventListener("click", signup)
+}
+
+if(loginBtn){
 loginBtn.addEventListener("click", login)
+}
+if(alreadyAccount){
+alreadyAccount.addEventListener("click", () => window.location.href="/login.html")
+}
