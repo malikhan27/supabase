@@ -61,9 +61,16 @@ async function login() {
 }
 
 async function googlelogin(){
-    supabase.auth.signInWithOAuth({
+    const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-      })
+        options: {
+          redirectTo: 'https://login-supabaseali.netlify.app/dashboard#'
+        }
+  })
+
+  if(data){
+    console.log(data)
+  }
       
 }
 
@@ -73,10 +80,6 @@ async function getsessioncheck(params) {
     const { data, error } = await supabase.auth.getSession()
     
     if (error) throw error
-
-    if(data){
-        console.log(data)
-    }
 
 
 
