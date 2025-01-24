@@ -64,14 +64,14 @@ async function googlelogin(){
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: 'https://login-supabaseali.netlify.app/dashboard#'
+          redirectTo: 'https://login-supabaseali.netlify.app/dashboard'
         }
   })
 
   if(data){
     console.log(data)
   }
-      
+      getsessioncheck()
 }
 
 
@@ -81,6 +81,9 @@ async function getsessioncheck(params) {
     
     if (error) throw error
 
+    if(data){
+      window.location.href= "/dashboard.html"
+    }
 
 
     
@@ -101,4 +104,3 @@ if(alreadyAccount){
 alreadyAccount.addEventListener("click", () => window.location.href="/login.html")
 }
 
-window.onload= getsessioncheck()
