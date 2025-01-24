@@ -64,6 +64,8 @@ async function getUsers() {
   }
 }
 
+
+
 addUserBtn.addEventListener("click", addUser);
 
 window.onload = getUsers();

@@ -67,6 +67,22 @@ async function googlelogin(){
       
 }
 
+
+
+async function getsessioncheck(params) {
+    const { data, error } = await supabase.auth.getSession()
+    
+    if (error) throw error
+
+    if(data){
+        console.log(data)
+    }
+
+
+
+    
+}
+
 if(logingoogleBtn){
 logingoogleBtn.addEventListener("click",googlelogin)
 }
@@ -81,3 +97,5 @@ loginBtn.addEventListener("click", login)
 if(alreadyAccount){
 alreadyAccount.addEventListener("click", () => window.location.href="/login.html")
 }
+
+window.onload= getsessioncheck()
